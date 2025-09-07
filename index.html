@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGBes | Bes на Wildberries</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff9f9;
+            color: #5a5a5a;
+            overflow-x: hidden;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #fff0f5 0%, #fff9f9 100%);
+        }
+
+        .btn-primary {
+            background: #ffb6c1;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #ff9eb5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+        }
+
+        .product-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 182, 193, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 182, 193, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 182, 193, 0);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm fixed w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-xl font-serif font-semibold text-pink-300">LGBes</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#products" class="text-gray-600 hover:text-pink-300 transition">Продукты</a>
+                        <a href="#about" class="text-gray-600 hover:text-pink-300 transition">О бренде</a>
+                        <a href="#reviews" class="text-gray-600 hover:text-pink-300 transition">Отзывы</a>
+                        <a href="#qr" class="text-gray-600 hover:text-pink-300 transition">Как купить</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-600 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-serif font-semibold text-gray-800 leading-tight mb-4">
+                        Нежная косметика <span class="text-pink-300">Bes</span> в Wildberries
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                        Уход за кожей, который вы заслуживаете. Натуральные ингредиенты и деликатные формулы для вашей красоты.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#products" class="btn-primary text-white px-6 py-3 rounded-full font-medium">
+                            Смотреть каталог
+                        </a>
+                        <a href="#qr" class="border border-pink-300 text-pink-300 px-6 py-3 rounded-full font-medium hover:bg-pink-50 transition">
+                            Перейти в магазин
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center" data-aos="fade-left">
+                    <div class="relative">
+                        <img src="http://static.photos/cosmetic/640x360/1" alt="Косметика Bess" class="rounded-lg shadow-xl w-full max-w-md floating">
+                        <div class="absolute -bottom-5 -right-5 bg-white p-2 rounded-full shadow-lg">
+                            <i data-feather="heart" class="text-pink-300 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-serif font-semibold text-gray-800 mb-4">Наши продукты</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Откройте для себя лучшие средства по уходу за кожей от бренда Bess</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="http://static.photos/cosmetic/640x360/2" alt="Очищающее молочко" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium text-gray-800 mb-2">Очищающее молочко</h3>
+                        <p class="text-gray-600 mb-4">Нежное очищение без стягивания кожи</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-300 font-medium">1 290 ₽</span>
+                            <button class="text-pink-300 hover:text-pink-400 transition">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 overflow-hidden">
+                        <img src="http://static.photos/cosmetic/640x360/3" alt="Увлажняющий крем" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium text-gray-800 mb-2">Увлажняющий крем</h3>
+                        <p class="text-gray-600 mb-4">Интенсивное увлажнение на 24 часа</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-300 font-medium">1 590  ₽</span>
+                            <button class="text-pink-300 hover:text-pink-400 transition">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="http://static.photos/cosmetic/640x360/4" alt="Тоник для лица" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium text-gray-800 mb-2">Тоник для лица</h3>
+                        <p class="text-gray-600 mb-4">Освежает и подготавливает кожу к уходу</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-300 font-medium">990 ₽</span>
+                            <button class="text-pink-300 hover:text-pink-400 transition">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#qr" class="inline-block btn-primary text-white px-8 py-3 rounded-full font-medium">
+                    Смотреть все товары
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Brand Section -->
+    <section id="about" class="py-16 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                    <img src="http://static.photos/cosmetic/640x360/5" alt="О бренде Bess" class="rounded-lg shadow-lg w-full max-w-md mx-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="text-3xl font-serif font-semibold text-gray-800 mb-6">О бренде Bess</h2>
+                    <p class="text-gray-600 mb-4">
+                        Bess — это косметика, созданная с любовью и заботой о вашей коже. Мы верим, что уход за собой должен быть приятным ритуалом, а не рутиной.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Наши продукты созданы на основе натуральных ингредиентов без агрессивных компонентов. Каждая формула разработана с учетом особенностей чувствительной кожи.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-2 mr-3">
+                                <i data-feather="check" class="text-pink-300 w-4 h-4"></i>
+                            </div>
+                            <span class="text-gray-700">Без парабенов</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-2 mr-3">
+                                <i data-feather="check" class="text-pink-300 w-4 h-4"></i>
+                            </div>
+                            <span class="text-gray-700">Гипоаллергенно</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-2 mr-3">
+                                <i data-feather="check" class="text-pink-300 w-4 h-4"></i>
+                            </div>
+                            <span class="text-gray-700">Натуральные компоненты</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-serif font-semibold text-gray-800 mb-4">Отзывы покупателей</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Что говорят наши клиенты о продукции Bess</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="http://static.photos/people/200x200/1" alt="Анна" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Анна</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        Очищающее молочко просто волшебное! Кожа после него такая мягкая и не стянутая. Пользуюсь уже месяц и вижу реальную разницу.
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="http://static.photos/people/200x200/2" alt="Елена" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Елена</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        Увлажняющий крем Bess — это спасение для моей сухой кожи зимой. Быстро впитывается, не оставляет жирного блеска и действительно увлажняет.
+                    </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="http://static.photos/people/200x200/3" alt="Мария" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Мария</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        Обожаю аромат тоника! Он такой нежный и ненавязчивый. Кожа после него свежая и подготовленная к дальнейшему уходу. Буду покупать еще!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Section -->
+    <section id="qr" class="py-16 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-serif font-semibold text-gray-800 mb-4">Как купить на Wildberries</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Отсканируйте QR-код или нажмите на кнопку ниже</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="mb-12 md:mb-0 md:mr-16 text-center" data-aos="fade-right">
+                    <div class="qr-pulse bg-white p-6 rounded-2xl inline-block">
+                        <img src="img/qr.png" alt="QR код Wildberries" class="w-48 h-48">
+                    </div>
+                    <p class="mt-4 text-gray-600">Наведите камеру на QR-код</p>
+                </div>
+
+                <div class="text-center md:text-left max-w-md" data-aos="fade-left">
+                    <h3 class="text-2xl font-serif font-medium text-gray-800 mb-4">Магазин LGBess на Wildberries</h3>
+                    <p class="text-gray-600 mb-6">
+                        Все продукты бренда Bess доступны в нашем магазине на Wildberries. Быстрая доставка по всей России, удобная оплата и гарантия качества.
+                    </p>
+                    <a href="https://www.wildberries.ru/" class="btn-primary text-white px-8 py-3 rounded-full font-medium inline-block">
+                        Перейти в магазин
+                    </a>
+                    <div class="mt-6 flex items-center justify-center md:justify-start">
+                        <i data-feather="truck" class="text-pink-300 mr-2"></i>
+                        <span class="text-gray-600">Бесплатная доставка на ПВЗ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-serif font-semibold text-pink-300 mb-4">LGBes</h3>
+                    <p class="text-gray-600 max-w-xs">Официальный магазин косметики Bes на Wildberries</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Меню</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#products" class="text-gray-600 hover:text-pink-300 transition">Продукты</a></li>
+                            <li><a href="#about" class="text-gray-600 hover:text-pink-300 transition">О бренде</a></li>
+                            <li><a href="#reviews" class="text-gray-600 hover:text-pink-300 transition">Отзывы</a></li>
+                            <li><a href="#qr" class="text-gray-600 hover:text-pink-300 transition">Как купить</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Контакты</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600">
+                                <i data-feather="mail" class="mr-2 w-4 h-4"></i>
+                                <span>info@lgbess.ru</span>
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i data-feather="instagram" class="mr-2 w-4 h-4"></i>
+                                <span>@lgbess</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">Wildberries</h4>
+                        <ul class="space-y-2">
+                            <li class="text-gray-600">Продавец: LGBes</li>
+                            <li class="text-gray-600">Рейтинг: 4.9/5</li>
+                            <li class="text-gray-600">Доставка по всей РФ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-100 text-center text-gray-500 text-sm">
+                <p>© 2023 LGBess. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        feather.replace();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
